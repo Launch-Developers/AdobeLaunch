@@ -30,7 +30,7 @@
       <h4 class="coral-Heading coral-Heading--4">Cookie Expiration</h4>
       <input type="text" id="cookieExpiration" class="lrg-smlbox"> <span>Months</span>
       <h4 class="coral-Heading coral-Heading--4">Actions that Accept or Close Banner</h4>
-      <label><input type="checkbox" id="clickAcceptButton" value="1">Click Accept Button</label><br />
+      <label><input type="checkbox" id="clickAcceptButton" value="1" checked disabled>Click Accept Button</label><br />
       <label><input type="checkbox" id="clickAnywhereOnPage" value="2">Click anywhere on page</label><br />
       <label><input type="checkbox" id="navigateToAnotherPage" value="3">Navigate to another page</label><br />
       <label><input type="checkbox" id="scrollPage" value="4">Scroll page</label>
@@ -38,7 +38,12 @@
 
   <hr />
 
+  <h3 class="coral-Heading coral-Heading--3">Interested in using the Evidon Consent Platform?</h3>
+  <p>Fill out the form below and we'll contact you with additional details.</p>
 
+  <script src="//app-sjp.marketo.com/js/forms2/js/forms2.min.js"></script>
+  <form id="mktoForm_1704"></form>
+  <script>MktoForms2.loadForm("//app-sjp.marketo.com", "338-XKU-741", 1704);</script>
 
     <script src="https://assets.adobedtm.com/activation/reactor/extensionbridge/extensionbridge.min.js"></script>
     <script>
@@ -51,7 +56,11 @@
 
         getSettings: function() {
           return {
-            cookieExpiration: document.getElementById('cookieExpiration').value || ''
+            cookieExpiration: document.getElementById('cookieExpiration').value || '',
+            clickAcceptButton: document.getElementById('clickAcceptButton').checked,
+            clickAnywhereOnPage: document.getElementById('clickAnywhereOnPage').checked,
+            navigateToAnotherPage: document.getElementById('navigateToAnotherPage').checked,
+            scrollPage: document.getElementById('scrollPage').checked,
           };
         },
 

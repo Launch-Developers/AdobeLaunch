@@ -22,3 +22,10 @@ body {
  input.lrg-smlbox { width: 25px; }
 
  label input[type="checkbox"] {margin-right:10px; }
+/* */
+ .mktoFormRow { font-family: adobe-clean,Helvetica,Arial,sans-serif !important; }
+ .mktoForm .mktoLabel { padding:10px 0 10px 0 !important; font-weight: normal !important; }
+.mktoOffset { display:none; }
+.mktoFieldWrap { margin-right:25px !important; }
+.mktoButtonWrap { margin-left: 0 !important; padding-top:20px !important; }
+button.mktoButton { margin-top: 20px !important; border-radius:5px; border:solid 1px black; background-color:white; }
