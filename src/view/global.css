@@ -1,0 +1,24 @@
+body {
+    padding: 20px;
+  }
+  
+  .label {
+    line-height: 36px;
+    margin-right: 8px;
+  }
+  
+  .u-gapRight {
+    margin-right: 8px;
+  }
+
+ h3.coral-Heading--3 { font-size:1.1em; color: #395492; margin:10px 0 8px 0; }
+ h4.coral-Heading--4 { font-size:1.0em; margin:15px 0 13px 0;}
+
+ hr {     border: solid 1px #f2f2f2; margin:20px 0 20px 0; }
+
+ p { width:610px; }
+
+ input.lrg-txtbox { width: 350px; }
+ input.lrg-smlbox { width: 25px; }
+
+ label input[type="checkbox"] {margin-right:10px; }

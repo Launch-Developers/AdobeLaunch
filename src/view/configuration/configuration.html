@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Extension Configuration</title>
+    <link rel="stylesheet" href="//assets.adobedtm.com/activation/reactor/coralui/3.16.0/css/coral.css">
+    <link rel="stylesheet" href="../global.css">
+    <script>
+      window.Coral = window.Coral || {};
+      Coral.options = { typeKitId: 'buj6cmr'};
+    </script>
+  
+    <script src="//assets.adobedtm.com/activation/reactor/coralui/3.16.0/js/libs/jquery.js"></script>
+    <script src="//assets.adobedtm.com/activation/reactor/coralui/3.16.0/js/coral.js"></script>
+  </head>
+  <body class="coral--light">
+    <div>
+      <h3 class="coral-Heading coral-Heading--3">Evidon Consent Platform</h3>
+      <p>Evidon is the leading provider of simple solutions to complex digital problems. Whether it’s GDPR, PIPEDA, or the 
+        ePrivacy Directive, our patented, easy to use technology keeps your sites in compliance with changing privacy laws 
+        and programs around the world.</p>
+    </div>
+  <hr />
+
+  <form>
+    <h3 class="coral-Heading coral-Heading--3">Settings</h3>
+      <p>For current Evidon customers, please enter the Adobe Launch code found on your site notice.</p>
+      <h4 class="coral-Heading coral-Heading--4">Site Notice Adobe Launch Code</h4>
+      <input type="text" id="launchCode" class="lrg-txtbox" placeholder="Paste code from Site Notice" />
+      <h4 class="coral-Heading coral-Heading--4">Cookie Expiration</h4>
+      <input type="text" id="cookieExpiration" class="lrg-smlbox"> <span>Months</span>
+      <h4 class="coral-Heading coral-Heading--4">Actions that Accept or Close Banner</h4>
+      <label><input type="checkbox" id="clickAcceptButton" value="1">Click Accept Button</label><br />
+      <label><input type="checkbox" id="clickAnywhereOnPage" value="2">Click anywhere on page</label><br />
+      <label><input type="checkbox" id="navigateToAnotherPage" value="3">Navigate to another page</label><br />
+      <label><input type="checkbox" id="scrollPage" value="4">Scroll page</label>
+  </form>
+
+  <hr />
+
+
+
+    <script src="https://assets.adobedtm.com/activation/reactor/extensionbridge/extensionbridge.min.js"></script>
+    <script>
+      window.extensionBridge.register({
+        init: function(info) {
+          if (info.settings) {
+            document.getElementById('cookieExpiration').value = (info.settings && info.settings.cookieExpiration) || '';
+          }
+        },
+
+        getSettings: function() {
+          return {
+            cookieExpiration: document.getElementById('cookieExpiration').value || ''
+          };
+        },
+
+        validate: function() {
+          var cookieExpField = document.getElementById('cookieExpiration');
+          var months = Number(cookieExpField.value);
+          cookieExpField.invalid = isNaN(months) || months < 1;
+          return !cookieExpField.invalid;
+        }
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,67 @@
+{
+  "displayName": "Consent Platform",
+  "name": "consent-platform",
+  "version": "0.0.1",
+  "description": "The industry standard, patent-protected, desktop, mobile and in-app consent solution for compliance with ePrivacy Directive (“Cookie Law”), PIPEDA, CalOPPA and more.",
+  "author": {
+    "name": "Evidon"
+  },
+  "viewBasePath": "src/view/",
+  "configuration": {
+    "viewPath": "configuration/configuration.html",
+    "schema": {
+      "$schema": "http://json-schema.org/draft-04/schema#",
+      "type": "object",
+      "properties": {}
+    }
+  },
+  "events": [
+    {
+      "displayName": "Page Load Action",
+      "name": "page-load-action",
+      "libPath": "src/lib/events/pageLoadAction.js",
+      "schema": {
+        "$schema": "http://json-schema.org/draft-04/schema#",
+        "type": "object",
+        "properties": {}
+      },
+      "viewPath": "events/pageLoadAction.html"
+    }
+  ],
+  "conditions": [
+    {
+      "displayName": "Cookie",
+      "name": "cookie",
+      "libPath": "src/lib/conditions/cookie.js",
+      "schema": {
+        "$schema": "http://json-schema.org/draft-04/schema#",
+        "type": "object",
+        "properties": {}
+      }
+    }
+  ],
+  "actions": [
+    {
+      "displayName": "Set Cookie",
+      "name": "set-cookie",
+      "libPath": "src/lib/actions/setCookie.js",
+      "schema": {
+        "$schema": "http://json-schema.org/draft-04/schema#",
+        "type": "object",
+        "properties": {}
+      }
+    }
+  ],
+  "dataElements": [
+    {
+      "displayName": "Data Element Here",
+      "name": "data-element-here",
+      "libPath": "src/lib/dataElements/dataElementHere.js",
+      "schema": {
+        "$schema": "http://json-schema.org/draft-04/schema#",
+        "type": "object",
+        "properties": {}
+      }
+    }
+  ]
+}
