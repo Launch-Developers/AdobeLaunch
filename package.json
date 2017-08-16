@@ -1,14 +1,26 @@
 {
-  "name": "site-notice-launch",
+  "name": "site-notice-extension",
   "version": "0.0.1",
-  "description": "This is site notice for Adobe Launch Extension",
+  "description": "This is site notice extension for Adobe Launch",
   "main": "index.js",
   "scripts": {
     "scaffold": "reactor-scaffold",
     "sandbox": "reactor-sandbox"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/evidon/AdobeLaunch.git"
+  },
+  "keywords": [
+    "adobe",
+    "launch"
+  ],
   "author": "Evidon",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/evidon/AdobeLaunch/issues"
+  },
+  "homepage": "https://github.com/evidon/AdobeLaunch#readme",
   "devDependencies": {
     "@adobe/reactor-sandbox": "^7.16.3",
     "@adobe/reactor-scaffold": "^1.1.8",

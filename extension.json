@@ -17,15 +17,14 @@
   },
   "events": [
     {
-      "displayName": "Page Load Action",
-      "name": "page-load-action",
-      "libPath": "src/lib/events/pageLoadAction.js",
+      "displayName": "Page Load",
+      "name": "page-load",
+      "libPath": "src/lib/events/pageLoad.js",
       "schema": {
         "$schema": "http://json-schema.org/draft-04/schema#",
         "type": "object",
         "properties": {}
-      },
-      "viewPath": "events/pageLoadAction.html"
+      }
     }
   ],
   "conditions": [
