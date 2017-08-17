@@ -22,6 +22,62 @@ body {
  input.lrg-smlbox { width: 25px; }
 
  label input[type="checkbox"] {margin-right:10px; }
+
+#noticeDetails { display:none; }
+#noticeDetails label, #noticeDetails span { font-size:1.0em; padding:7px 5px 7px 0; }
+#noticeDetails label { font-weight: bold;}
+#noticeDetails span { display:inline-block; }
+#errorMessage { color:red; display:none;}
+
+/* Tooltip container
+
+data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABDUlEQVQ4T63TvyvGURTH8ddjUOIf8CMZ/EgGo9moLCZRNtnYpGQV2WRQRilKMeA/sFglIcpEVgxMdOveur7dRz1xp+8953ze55zvPafmj6dW0HdiAePojf57nGITT7mmCpjBNlrrFPaOOewnfw4I4t2K8AghZiKzf2EaB8GWAF24KWRuizFvFXC4D+A5ATawWCj7DE0YK/jWsJwA1xisBD3gHN0YLQAuMZwAn2guBKXejwu+D7T8G+AKQw1W8KOFdSw1CFjFSmqhA7cIz5afev/gFf14yQcpDMdeNhuPuIi0EfTE7zBIkzjMByllncJOoZLkD5lnk7gECLZ2zMdl6ovKO5xgK5T92zI1vNzfyLkyEa+pqlIAAAAASUVORK5CYII=
+
+*/
+.tooltip {
+  position: relative;
+  display: inline-block;
+  width:16px; height:16px;
+  /* border-bottom: 1px dotted black;  If you want dots under the hoverable text */
+  background: 
+    url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABDUlEQVQ4T63TvyvGURTH8ddjUOIf8CMZ/EgGo9moLCZRNtnYpGQV2WRQRilKMeA/sFglIcpEVgxMdOveur7dRz1xp+8953ze55zvPafmj6dW0HdiAePojf57nGITT7mmCpjBNlrrFPaOOewnfw4I4t2K8AghZiKzf2EaB8GWAF24KWRuizFvFXC4D+A5ATawWCj7DE0YK/jWsJwA1xisBD3gHN0YLQAuMZwAn2guBKXejwu+D7T8G+AKQw1W8KOFdSw1CFjFSmqhA7cIz5afev/gFf14yQcpDMdeNhuPuIi0EfTE7zBIkzjMByllncJOoZLkD5lnk7gECLZ2zMdl6ovKO5xgK5T92zI1vNzfyLkyEa+pqlIAAAAASUVORK5CYII=)
+    no-repeat;
+  background-size: 12px 12px; top:6px;
+}
+
+/* Tooltip text */
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 300px;
+  background-color: #1884ec;
+  color: #fff;
+  padding: 8px;
+  border-radius: 4px; font-size:0.9em; 
+
+  /* Position the tooltip text - see examples below! */
+  position: absolute;
+  z-index: 1;
+  top: -15px;
+  left: 125%;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+
+.tooltip .tooltiptext::after {
+  content: " ";
+  position: absolute;
+  top: 50%;
+  right: 100%; /* To the left of the tooltip */
+  margin-top: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent #1884ec transparent transparent;
+}
+
+
 /* */
  .mktoFormRow { font-family: adobe-clean,Helvetica,Arial,sans-serif !important; }
  .mktoForm .mktoLabel { padding:10px 0 10px 0 !important; font-weight: normal !important; }

@@ -25,8 +25,20 @@
   <form>
     <h3 class="coral-Heading coral-Heading--3">Settings</h3>
       <p>For current Evidon customers, please enter the Adobe Launch code found on your site notice.</p>
-      <h4 class="coral-Heading coral-Heading--4">Site Notice Adobe Launch Code</h4>
-      <input type="text" id="launchCode" class="lrg-txtbox" placeholder="Paste code from Site Notice" />
+      <h4 class="coral-Heading coral-Heading--4">Site Notice Adobe Launch Code 
+        <div class="tooltip">
+          <span class="tooltiptext">Find the Adobe Launch Code in Evidon Privacy Tools. Open your site notice in Evidon Privacy Tools, click "View Tag."</span>
+        </div>
+        </h4>
+      <input type="text" id="launchCode" class="lrg-txtbox" placeholder="Paste code from Site Notice" onblur="decodeJson()" />
+      <div id="errorMessage">An error occurred with your launch code. Please verify and try pasting again.</div>
+      <div id="noticeDetails">
+        <label>Notice Name:</label><span id="noticeName"></span><br />
+        <label>Country:</label><span id="noticeCountry"></span><br />
+        <label>Language:</label><span id="noticeLanguage"></span><br />
+        <label>Notice Type:</label><span id="noticeType"></span>
+      </div>
+
       <h4 class="coral-Heading coral-Heading--4">Cookie Expiration</h4>
       <input type="text" id="cookieExpiration" class="lrg-smlbox"> <span>Months</span>
       <h4 class="coral-Heading coral-Heading--4">Actions that Accept or Close Banner</h4>
@@ -37,6 +49,10 @@
   </form>
 
   <hr />
+
+  <textarea id="textSixtyFour" rows="10" cols="100"></textarea>
+  <button onclick="encodeJson()">Make Encoded Json</button>
+  <button onclick="decodeJson()">Show Decoded Json</button>
 
   <h3 class="coral-Heading coral-Heading--3">Interested in using the Evidon Consent Platform?</h3>
   <p>Fill out the form below and we'll contact you with additional details.</p>
@@ -56,6 +72,8 @@
 
         getSettings: function() {
           return {
+            companyId: noticeObj.CId,
+            noticeId: noticeObj.NId,
             cookieExpiration: document.getElementById('cookieExpiration').value || '',
             clickAcceptButton: document.getElementById('clickAcceptButton').checked,
             clickAnywhereOnPage: document.getElementById('clickAnywhereOnPage').checked,
@@ -68,9 +86,61 @@
           var cookieExpField = document.getElementById('cookieExpiration');
           var months = Number(cookieExpField.value);
           cookieExpField.invalid = isNaN(months) || months < 1;
-          return !cookieExpField.invalid;
+          
+          //validate imported items.
+          var importedObjExists = noticeObj != null;
+          var objHasCid = noticeObj.CId && noticeObj.CId > 0;
+          var objHasNId = noticeObj.NId && noticeObj.NId > 0;
+
+          return !cookieExpField.invalid && importedObjExists && objHasCid && objHasNId;
         }
       });
+
+      var myObj = {
+        'CId' : 242,
+        'NId' : 34567,
+        'Name' : 'Stewey\'s',
+        'Country' : 'United States',
+        'Language' : 'English',
+        'Type' : 'Persistent with Implied Consent' 
+        };
+
+      var noticeObj = null;
+
+      function encodeJson(){
+        let objJsonStr = JSON.stringify(myObj);
+        let objJsonB64 = btoa(objJsonStr);//.toString('base64');
+        var textSixtyFour = document.getElementById('textSixtyFour');
+        textSixtyFour.value = objJsonB64;
+      }
+
+      function decodeJson(){
+        try{
+          var launchCode = document.getElementById('launchCode');
+          if(launchCode.value && launchCode.value.length > 10) {
+            let objJsonB64 = launchCode.value;
+            let objJsonStr = atob(objJsonB64);
+            
+            noticeObj = JSON.parse(objJsonStr);
+
+            document.getElementById('noticeName').innerHTML = noticeObj.Name;
+            document.getElementById('noticeCountry').innerHTML = noticeObj.Country;
+            document.getElementById('noticeLanguage').innerHTML = noticeObj.Language;
+            document.getElementById('noticeType').innerHTML = noticeObj.Type;
+
+            document.getElementById('noticeDetails').style.display = 'block';
+            document.getElementById('errorMessage').style.display = 'none';
+
+          }
+        } catch(err) {
+          document.getElementById('noticeDetails').style.display = 'none';
+          document.getElementById('errorMessage').style.display = 'block';
+        }
+        
+        
+        
+      }
+
     </script>
   </body>
 </html>
