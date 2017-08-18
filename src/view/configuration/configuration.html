@@ -49,11 +49,11 @@
   </form>
 
   <hr />
-
-  <textarea id="textSixtyFour" rows="10" cols="100"></textarea>
-  <button onclick="encodeJson()">Make Encoded Json</button>
-  <button onclick="decodeJson()">Show Decoded Json</button>
-
+  <div style="display:none;">
+    <textarea id="textSixtyFour" rows="10" cols="100"></textarea>
+    <button onclick="encodeJson()">Make Encoded Json</button>
+  </div>
+  
   <h3 class="coral-Heading coral-Heading--3">Interested in using the Evidon Consent Platform?</h3>
   <p>Fill out the form below and we'll contact you with additional details.</p>
 
@@ -67,6 +67,15 @@
         init: function(info) {
           if (info.settings) {
             document.getElementById('cookieExpiration').value = (info.settings && info.settings.cookieExpiration) || '';
+            noticeObj = {
+              'CId' : info.settings.companyId,
+              'NId' : info.settings.noticeId,
+              'Name' : info.settings.name,
+              'Country' : info.settings.country,
+              'Language' : info.settings.language,
+              'Type' : info.settings.type 
+              };
+              populateObj(noticeObj);
           }
         },
 
@@ -74,6 +83,10 @@
           return {
             companyId: noticeObj.CId,
             noticeId: noticeObj.NId,
+            name: noticeObj.Name,
+            country: noticeObj.Country,
+            language: noticeObj.Language,
+            type: noticeObj.Type,
             cookieExpiration: document.getElementById('cookieExpiration').value || '',
             clickAcceptButton: document.getElementById('clickAcceptButton').checked,
             clickAnywhereOnPage: document.getElementById('clickAnywhereOnPage').checked,
@@ -99,9 +112,9 @@
       var myObj = {
         'CId' : 242,
         'NId' : 34567,
-        'Name' : 'Stewey\'s',
-        'Country' : 'United States',
-        'Language' : 'English',
+        'Name' : 'Chucks\'s',
+        'Country' : 'Brazil',
+        'Language' : 'Portuguese',
         'Type' : 'Persistent with Implied Consent' 
         };
 
@@ -123,13 +136,7 @@
             
             noticeObj = JSON.parse(objJsonStr);
 
-            document.getElementById('noticeName').innerHTML = noticeObj.Name;
-            document.getElementById('noticeCountry').innerHTML = noticeObj.Country;
-            document.getElementById('noticeLanguage').innerHTML = noticeObj.Language;
-            document.getElementById('noticeType').innerHTML = noticeObj.Type;
-
-            document.getElementById('noticeDetails').style.display = 'block';
-            document.getElementById('errorMessage').style.display = 'none';
+            populateObj(noticeObj);
 
           }
         } catch(err) {
@@ -139,6 +146,16 @@
         
         
         
+      }
+
+      function populateObj(notice){
+        document.getElementById('noticeName').innerHTML = notice.Name;
+            document.getElementById('noticeCountry').innerHTML = notice.Country;
+            document.getElementById('noticeLanguage').innerHTML = notice.Language;
+            document.getElementById('noticeType').innerHTML = notice.Type;
+
+            document.getElementById('noticeDetails').style.display = 'block';
+            document.getElementById('errorMessage').style.display = 'none';
       }
 
     </script>
