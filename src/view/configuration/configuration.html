@@ -14,6 +14,20 @@
     <script src="//assets.adobedtm.com/activation/reactor/coralui/3.16.0/js/coral.js"></script>
   </head>
   <body class="coral--light">
+    <div id="success-modal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img src="../modal-header.png" />
+        <div class="modal-text">
+          <div style="text-align:center; margin-bottom:20px;">
+            <img src="https://s3.amazonaws.com/platformcl/Prod/images/evidonLogo.png" width="100"; />
+          </div>
+          <h1 class="coral-Heading coral-Heading--1">Thanks for your interest in the Evidon Consent Platform</h1>
+          <p style="width:450px;">We'll be in touch shortly. Learn more about our <a href="#">patented consent platform</a> that provides a simple solution for compliance with privacy laws and programs around the world.</p>
+        </div>
+      </div>
+    </div>
+
     <div>
       <h3 class="coral-Heading coral-Heading--3">Evidon Consent Platform</h3>
       <p>Evidon is the leading provider of simple solutions to complex digital problems. Whether it’s GDPR, PIPEDA, or the 
@@ -53,9 +67,10 @@
     <textarea id="textSixtyFour" rows="10" cols="100"></textarea>
     <button onclick="encodeJson()">Make Encoded Json</button>
   </div>
-
+  <div id="contact-section">
   <h3 class="coral-Heading coral-Heading--3">Interested in using the Evidon Consent Platform?</h3>
   <p>Fill out the form below and we'll contact you with additional details.</p>
+  <p id="invalidMessage">All fields below are required. Please fix and submit again.</p>
   <!-- <button id="testMarketo" onclick="submitMarketo()">Test Marketo</button> -->
   <div id="marketoMessage"></div>
 
@@ -63,14 +78,35 @@
   <script src="//app-sjp.marketo.com/js/forms2/js/forms2.min.js"></script>
   <form id="mktoForm_1704" style="display:none;"></form>
   <form id="evidon_lead">
-
+    <div>
+      <label>* First Name:</lable>
+      <input type="text" id="e_FirstName" />  
+    </div>
+    <div>
+        <label>* Last Name:</lable>
+        <input type="text" id="e_LastName" />  
+    </div>
+    <div>
+        <label>* Job Title:</lable>
+        <input type="text" id="e_Title" />  
+    </div>
+    <div>
+        <label>* Company:</lable>
+        <input type="text" id="e_Company" />  
+    </div>
+    <div>
+        <label>* Email Address:</lable>
+        <input type="text" id="e_Email" />  
+    </div>
   </form>
+  <button style="clear:both" type="button" id="evidon_lead_button" onclick="submitMarketo()">Send</button>
+</div>
   <script>
     MktoForms2.loadForm("//app-sjp.marketo.com", "338-XKU-741", 1704, function(form) {
                 form.onSuccess(function(values, followUpUrl) {
-                  console.log('marketo form success.');
-                  //document.getElementById('mktoForm_1704').style.display = 'none';
-                  document.getElementById('marketoMessage').innerHTML = "Successfully submitted form. Thanks.";
+                  document.getElementById('contact-section').style.display = 'none';
+                  showModal();
+                  //document.getElementById('marketoMessage').innerHTML = "Successfully submitted form. Thanks.";
                     return false;
                 });
             });
@@ -128,20 +164,19 @@
       var myObj = {
         'CId' : 242,
         'NId' : 34567,
-        'Name' : 'Chucks\'s',
+        'Name' : 'Chucks\'s Notice',
         'Country' : 'Brazil',
         'Language' : 'Portuguese',
         'Type' : 'Persistent with Implied Consent' 
         };
-
-      var noticeObj = null;
-
       function encodeJson(){
         let objJsonStr = JSON.stringify(myObj);
         let objJsonB64 = btoa(objJsonStr);//.toString('base64');
         var textSixtyFour = document.getElementById('textSixtyFour');
         textSixtyFour.value = objJsonB64;
       }
+      
+      var noticeObj = null;
 
       function decodeJson(){
         try{
@@ -159,9 +194,6 @@
           document.getElementById('noticeDetails').style.display = 'none';
           document.getElementById('errorMessage').style.display = 'block';
         }
-        
-        
-        
       }
 
       function populateObj(notice){
@@ -173,39 +205,40 @@
             document.getElementById('noticeDetails').style.display = 'block';
             document.getElementById('errorMessage').style.display = 'none';
       }
-      $('#mktoForm_1704').submit(function(event) {
-                event.preventDefault();
-                console.log('prevented form submission.');
-      });
 
       function submitMarketo(){
-        var myForm = MktoForms2.allForms()[0];
-        myForm.addHiddenFields({
-	      //These are the values which will be submitted to Marketo
-          'FirstName': 'Chad',
-          'LastName':'Boulton',
-          'Title' : 'Test Job Title',
-          'Company' : 'Test Company',
-          'Email': 'cboulton@evidon.com'
-        });
-        myForm.submit();
-        // var data = {};
-        // data.FirstName = 'Chad';
-        // data.LastName = 'Testerton';
-        // data.Job_Function__c = 'Test Job Title';
-        // data.Company = 'Test Company';
-        // data.Email = 'testEmail@evidon.com';
-        // data.formid = '1704';
-        // data.muchkinId = '338-XKU-741';
-        // data._mkt_trk = '';
+        
+        var firstName = document.getElementById('e_FirstName').value;
+        var lastName = document.getElementById('e_LastName').value;
+        var title = document.getElementById('e_Title').value;
+        var company = document.getElementById('e_Company').value;
+        var email = document.getElementById('e_Email').value;
 
-        // $.post("http://app-sjp.marketo.com/index.php/leadCapture/save", data)
-        //   .done(function( data ) {
-        //     alert( "Data Loaded: " + data );
-        //   })
-        //   .fail(function () {
-        //     alert('Failed on post to Marketo.');
-        //   } );;
+        if(firstName.length > 0 && lastName.length > 0 && title.length > 0 && company.length > 0 && email.length > 0 ){
+          document.getElementById('invalidMessage').style.display = 'none';
+          var myForm = MktoForms2.allForms()[0];
+          myForm.addHiddenFields(
+          {
+            'FirstName': firstName,
+            'LastName': lastName,
+            'Title' : title,
+            'Company' : company,
+            'Email': email
+          });
+          myForm.submit();
+          //console.log('submitted form for marketo successfully');
+        } else {
+          document.getElementById('invalidMessage').style.display = 'block';
+        }
+      }
+      function showModal(){
+        var modal = document.getElementById('success-modal');
+        modal.style.display = 'block';
+      }
+
+      function closeModal(){
+        var modal = document.getElementById('success-modal');
+        modal.style.display = 'none';
       }
 
     </script>

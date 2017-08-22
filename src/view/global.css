@@ -10,7 +10,7 @@ body {
   .u-gapRight {
     margin-right: 8px;
   }
-
+  h1.coral-Heading--1 { font-size:1.5em;  margin:10px 0 8px 0; font-weight:bolder; }  
  h3.coral-Heading--3 { font-size:1.1em; color: #395492; margin:10px 0 8px 0; }
  h4.coral-Heading--4 { font-size:1.0em; margin:15px 0 13px 0;}
 
@@ -77,11 +77,51 @@ data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABDUlEQVQ4T6
   border-color: transparent #1884ec transparent transparent;
 }
 
+p#invalidMessage { color:red; display:none; }
 
-/* */
- .mktoFormRow { font-family: adobe-clean,Helvetica,Arial,sans-serif !important; }
- .mktoForm .mktoLabel { padding:10px 0 10px 0 !important; font-weight: normal !important; }
-.mktoOffset { display:none; }
-.mktoFieldWrap { margin-right:25px !important; }
-.mktoButtonWrap { margin-left: 0 !important; padding-top:20px !important; }
-button.mktoButton { margin-top: 20px !important; border-radius:5px; border:solid 1px black; background-color:white; }
+#evidon_lead  {  width:500px; overflow:auto;}
+#evidon_lead div {  width:200px; float:left; padding:0 0 20px 0; }
+/* #evidon_lead label { display:block; padding:10px; } */
+#evidon_lead div input { display:block; float:none;  width:150px; margin-top:10px; }
+
+.modal { 
+  display: none; 
+  position: fixed; 
+  z-index: 1; 
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%; 
+  overflow: auto; 
+  background-color: rgb(0,0,0); 
+  background-color: rgba(0,0,0,0.4); 
+}
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto; 
+  padding: 0px;
+  border: 1px solid #888;
+  width: 600px;
+  position:relative;
+  box-shadow: 2px 2px 5px #777;
+}
+.close {
+  color: #aaa;
+  font-size: 1.5em;
+  font-weight: bold;
+  background-color:#4b4b4b;
+  position:absolute;
+  border-radius:50%;
+  width:12px;
+  height: 12px;
+  padding:5px; line-height:6px;
+  right: -7px;
+  top:-7px;
+}
+.close:hover,
+.close:focus {
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+}
+.modal-text { padding:10px 70px 70px 70px; word-wrap:break-word; }
