@@ -53,13 +53,29 @@
     <textarea id="textSixtyFour" rows="10" cols="100"></textarea>
     <button onclick="encodeJson()">Make Encoded Json</button>
   </div>
-  
+
   <h3 class="coral-Heading coral-Heading--3">Interested in using the Evidon Consent Platform?</h3>
   <p>Fill out the form below and we'll contact you with additional details.</p>
+  <!-- <button id="testMarketo" onclick="submitMarketo()">Test Marketo</button> -->
+  <div id="marketoMessage"></div>
+
 
   <script src="//app-sjp.marketo.com/js/forms2/js/forms2.min.js"></script>
-  <form id="mktoForm_1704"></form>
-  <script>MktoForms2.loadForm("//app-sjp.marketo.com", "338-XKU-741", 1704);</script>
+  <form id="mktoForm_1704" style="display:none;"></form>
+  <form id="evidon_lead">
+
+  </form>
+  <script>
+    MktoForms2.loadForm("//app-sjp.marketo.com", "338-XKU-741", 1704, function(form) {
+                form.onSuccess(function(values, followUpUrl) {
+                  console.log('marketo form success.');
+                  //document.getElementById('mktoForm_1704').style.display = 'none';
+                  document.getElementById('marketoMessage').innerHTML = "Successfully submitted form. Thanks.";
+                    return false;
+                });
+            });
+    
+  </script>
 
     <script src="https://assets.adobedtm.com/activation/reactor/extensionbridge/extensionbridge.min.js"></script>
     <script>
@@ -156,6 +172,40 @@
 
             document.getElementById('noticeDetails').style.display = 'block';
             document.getElementById('errorMessage').style.display = 'none';
+      }
+      $('#mktoForm_1704').submit(function(event) {
+                event.preventDefault();
+                console.log('prevented form submission.');
+      });
+
+      function submitMarketo(){
+        var myForm = MktoForms2.allForms()[0];
+        myForm.addHiddenFields({
+	      //These are the values which will be submitted to Marketo
+          'FirstName': 'Chad',
+          'LastName':'Boulton',
+          'Title' : 'Test Job Title',
+          'Company' : 'Test Company',
+          'Email': 'cboulton@evidon.com'
+        });
+        myForm.submit();
+        // var data = {};
+        // data.FirstName = 'Chad';
+        // data.LastName = 'Testerton';
+        // data.Job_Function__c = 'Test Job Title';
+        // data.Company = 'Test Company';
+        // data.Email = 'testEmail@evidon.com';
+        // data.formid = '1704';
+        // data.muchkinId = '338-XKU-741';
+        // data._mkt_trk = '';
+
+        // $.post("http://app-sjp.marketo.com/index.php/leadCapture/save", data)
+        //   .done(function( data ) {
+        //     alert( "Data Loaded: " + data );
+        //   })
+        //   .fail(function () {
+        //     alert('Failed on post to Marketo.');
+        //   } );;
       }
 
     </script>

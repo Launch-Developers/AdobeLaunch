@@ -5,7 +5,7 @@ module.exports = {
     // Set up rules that you would like to test. modulePath is the name of your
     // extension (as defined in your extension.json) plus the path to the library module file.
     {
-      name: 'Cookie Check Rule',
+      name: 'Load Script',
       events: [
         {
           modulePath: 'consent-platform\\src\\lib\\events\\pageLoad.js',
@@ -13,14 +13,14 @@ module.exports = {
         }
       ],
       conditions: [
-        {
-          modulePath: 'consent-platform\\src\\lib\\conditions\\noCookie.js',
-          settings: {}
-        }
+        // {
+        //   modulePath: 'consent-platform\\src\\lib\\conditions\\noCookie.js',
+        //   settings: {}
+        // }
       ],
       actions: [
         {
-          modulePath: 'consent-platform\\src\\lib\\actions\\showBanner.js',
+          modulePath: 'consent-platform\\src\\lib\\actions\\loadScript.js',
           settings: {}
         }
       ]
