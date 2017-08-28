@@ -53,7 +53,7 @@ module.exports = {
     // extension (as defined in your extension.json) plus the path to the library module file.
 
     // myDataElement: {
-    //   modulePath: 'example-extension/src/lib/dataElements/javascriptVariable.js',
+    //   modulePath: 'example-extension\src\lib\dataElements\javascriptVariable.js',
     //   settings: {}
     // }
   },
@@ -63,7 +63,19 @@ module.exports = {
 
     'consent-platform': {
       displayName: 'Evidon Consent Platform',
-      settings: {}
+      settings: {
+        "companyId": 242,
+        "noticeId": 16102,
+        "name": "Stewey's",
+        "country": "United States",
+        "language": "English",
+        "type": "Persistent with Implied Consent",
+        "cookieExpiration": "12",
+        "clickAcceptButton": true,
+        "clickAnywhereOnPage": false,
+        "navigateToAnotherPage": false,
+        "scrollPage": false
+      },
     }
   },
   propertySettings: {

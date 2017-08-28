@@ -22,7 +22,7 @@
   },
   "homepage": "https://github.com/evidon/AdobeLaunch#readme",
   "devDependencies": {
-    "@adobe/reactor-sandbox": "^7.16.3",
+    "@adobe/reactor-sandbox": "^7.20.0",
     "@adobe/reactor-scaffold": "^1.1.8",
     "@adobe/reactor-turbine": "^20.2.0"
   }
