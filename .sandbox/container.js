@@ -68,15 +68,67 @@ module.exports = {
     // 'in-page implied'  - (link with implied)
     // 'hover implied'  - (persisten with implied)
 
+    /* Settings for type link
+       settings: {
+        "companyId": 242,
+        "noticeId": 16102,
+        "name": "Audrey Hover button Only",
+        "country": "United States",
+        "language": "English",
+        "type": "in-page"
+      }
+      
+      Settings for type: persistent
+      settings: {
+        "companyId": 242,
+        "noticeId": 8363,
+        "name": "test"",
+        "country": "United States",
+        "language": "English",
+        "type": "hover"
+      }
+
+      Settings for type: explicit
+      settings: {
+        "companyId": 242,
+        "noticeId": 16048,
+        "name": "test",
+        "country": "United States",
+        "language": "English",
+        "type": "explicit"
+      }
+
+      Settings for type: link with implied
+      settings: {
+        "companyId": 242,
+        "noticeId": 16079,
+        "name": "August 18 2017 JM 1",
+        "country": "United States",
+        "language": "English",
+        "type": "in-page implied"
+      }
+
+      Settings for type: persistent with implied
+      settings: {
+        "companyId": 242,
+        "noticeId": 16052,
+        "name": "August 14th 2017 JM 1",
+        "country": "United States",
+        "language": "English",
+        "type": "hover implied"
+      }
+
+    */
+
     'consent-platform': {
       displayName: 'Evidon Consent Platform',
       settings: {
         "companyId": 242,
-        "noticeId": 8363,
-        "name": "Audrey Hover button Only",
+        "noticeId": 16052,
+        "name": "August 14th 2017 JM 1",
         "country": "United States",
         "language": "English",
-        "type": "hover"
+        "type": "hover implied"
       },
     }
   },
