@@ -69,12 +69,7 @@ module.exports = {
         "name": "Audrey Hover button Only",
         "country": "United States",
         "language": "English",
-        "type": "hover",
-        "cookieExpiration": "12",
-        "clickAcceptButton": true,
-        "clickAnywhereOnPage": false,
-        "navigateToAnotherPage": false,
-        "scrollPage": false
+        "type": "hover"
       },
     }
   },
