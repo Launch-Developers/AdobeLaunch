@@ -1,5 +1,5 @@
 {
-  "name": "site-notice-extension",
+  "name": "consent-platform",
   "version": "0.0.1",
   "description": "This is site notice extension for Adobe Launch",
   "main": "index.js",

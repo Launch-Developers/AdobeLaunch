@@ -55,11 +55,13 @@
 
       <h4 class="coral-Heading coral-Heading--4">Cookie Expiration</h4>
       <input type="text" id="cookieExpiration" class="lrg-smlbox"> <span>Months</span>
-      <h4 class="coral-Heading coral-Heading--4">Actions that Accept or Close Banner</h4>
-      <label><input type="checkbox" id="clickAcceptButton" value="1" checked disabled>Click Accept Button</label><br />
-      <label><input type="checkbox" id="clickAnywhereOnPage" value="2">Click anywhere on page</label><br />
-      <label><input type="checkbox" id="navigateToAnotherPage" value="3">Navigate to another page</label><br />
-      <label><input type="checkbox" id="scrollPage" value="4">Scroll page</label>
+      <div style="display:none;">
+        <h4 class="coral-Heading coral-Heading--4">Actions that Accept or Close Banner</h4>
+        <label><input type="checkbox" id="clickAcceptButton" value="1" checked disabled>Click Accept Button</label><br />
+        <label><input type="checkbox" id="clickAnywhereOnPage" value="2">Click anywhere on page</label><br />
+        <label><input type="checkbox" id="navigateToAnotherPage" value="3">Navigate to another page</label><br />
+        <label><input type="checkbox" id="scrollPage" value="4">Scroll page</label>
+      </div>
   </form>
 
   <hr />
@@ -140,10 +142,10 @@
             language: noticeObj.Language,
             type: noticeObj.Type,
             cookieExpiration: document.getElementById('cookieExpiration').value || '',
-            clickAcceptButton: document.getElementById('clickAcceptButton').checked,
-            clickAnywhereOnPage: document.getElementById('clickAnywhereOnPage').checked,
-            navigateToAnotherPage: document.getElementById('navigateToAnotherPage').checked,
-            scrollPage: document.getElementById('scrollPage').checked,
+            //clickAcceptButton: document.getElementById('clickAcceptButton').checked,
+            //clickAnywhereOnPage: document.getElementById('clickAnywhereOnPage').checked,
+            //navigateToAnotherPage: document.getElementById('navigateToAnotherPage').checked,
+            //scrollPage: document.getElementById('scrollPage').checked,
           };
         },
 
@@ -198,12 +200,12 @@
 
       function populateObj(notice){
         document.getElementById('noticeName').innerHTML = notice.Name;
-            document.getElementById('noticeCountry').innerHTML = notice.Country;
-            document.getElementById('noticeLanguage').innerHTML = notice.Language;
-            document.getElementById('noticeType').innerHTML = notice.Type;
+        document.getElementById('noticeCountry').innerHTML = notice.Country;
+        document.getElementById('noticeLanguage').innerHTML = notice.Language;
+        document.getElementById('noticeType').innerHTML = notice.Type;
 
-            document.getElementById('noticeDetails').style.display = 'block';
-            document.getElementById('errorMessage').style.display = 'none';
+        document.getElementById('noticeDetails').style.display = 'block';
+        document.getElementById('errorMessage').style.display = 'none';
       }
 
       function submitMarketo(){
