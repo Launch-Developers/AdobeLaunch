@@ -61,6 +61,13 @@ module.exports = {
     // Set up an extension configuration you would like to test. The key is the name of your
     // extension (as defined in your extension.json).
 
+    // known notice types:
+    // 'in-page'  - (link) 
+    // 'hover'  - (persistent) 
+    // 'explicit' 
+    // 'in-page implied'  - (link with implied)
+    // 'hover implied'  - (persisten with implied)
+
     'consent-platform': {
       displayName: 'Evidon Consent Platform',
       settings: {
