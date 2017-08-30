@@ -6,7 +6,7 @@ module.exports = {
       name: 'Load Script',
       events: [
         {
-          modulePath: 'consent-platform\\src\\lib\\events\\pageLoad.js',
+          modulePath: 'consent-platform/src/lib/events/pageLoad.js',
           settings: {}
         }
       ],
@@ -14,7 +14,7 @@ module.exports = {
       ],
       actions: [
         {
-          modulePath: 'consent-platform\\src\\lib\\actions\\loadScript.js',
+          modulePath: 'consent-platform/src/lib/actions/loadScript.js',
           settings: {}
         }
       ]
