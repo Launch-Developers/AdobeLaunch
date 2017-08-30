@@ -1,5 +1,3 @@
-
-
 module.exports = {
   rules: [
     // Set up rules that you would like to test. modulePath is the name of your
@@ -13,10 +11,6 @@ module.exports = {
         }
       ],
       conditions: [
-        // {
-        //   modulePath: 'consent-platform\\src\\lib\\conditions\\noCookie.js',
-        //   settings: {}
-        // }
       ],
       actions: [
         {
@@ -24,29 +18,7 @@ module.exports = {
           settings: {}
         }
       ]
-    },
-    {
-      name: 'Consent Rule',
-      events: [
-        {
-          modulePath: 'consent-platform\\src\\lib\\events\\consentClick.js',
-          settings: {}
-        }
-      ],
-      conditions: [
-        // {
-        //   modulePath: 'consent-platform\\src\\lib\\conditions\\cookie.js',
-        //   settings: {}
-        // }
-      ],
-      actions: [
-        {
-          modulePath: 'consent-platform\\src\\lib\\actions\\setConsentCookie.js',
-          settings: {}
-        }
-      ]
-    }
-    
+    }    
   ],
   dataElements: {
     // Set up data elements that you would like to test. modulePath is the name of your
