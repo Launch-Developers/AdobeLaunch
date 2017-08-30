@@ -17,16 +17,6 @@
   },
   "events": [
     {
-      "displayName": "Consent Click",
-      "name": "consent-click",
-      "libPath": "src/lib/events/consentClick.js",
-      "schema": {
-        "$schema": "http://json-schema.org/draft-04/schema#",
-        "type": "object",
-        "properties": {}
-      }
-    },
-    {
       "displayName": "Page Load",
       "name": "page-load",
       "libPath": "src/lib/events/pageLoad.js",
@@ -37,18 +27,7 @@
       }
     }
   ],
-  "conditions": [
-    {
-      "displayName": "No Cookie Set",
-      "name": "no-cookie-set",
-      "libPath": "src/lib/conditions/noCookie.js",
-      "schema": {
-        "$schema": "http://json-schema.org/draft-04/schema#",
-        "type": "object",
-        "properties": {}
-      }
-    }
-  ],
+  "conditions": [  ],
   "actions": [
     {
       "displayName": "Load Script",
@@ -59,28 +38,7 @@
         "type": "object",
         "properties": {}
       }
-    },
-    {
-      "displayName": "Set Consent Cookie",
-      "name": "set-consent-cookie",
-      "libPath": "src/lib/actions/setConsentCookie.js",
-      "schema": {
-        "$schema": "http://json-schema.org/draft-04/schema#",
-        "type": "object",
-        "properties": {}
-      }
     }
   ],
-  "dataElements": [
-    {
-      "displayName": "Data Element Here",
-      "name": "data-element-here",
-      "libPath": "src/lib/dataElements/dataElementHere.js",
-      "schema": {
-        "$schema": "http://json-schema.org/draft-04/schema#",
-        "type": "object",
-        "properties": {}
-      }
-    }
-  ]
+  "dataElements": [ ]
 }
