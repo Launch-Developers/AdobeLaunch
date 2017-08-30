@@ -75,7 +75,8 @@ module.exports = {
         "name": "Audrey Hover button Only",
         "country": "United States",
         "language": "English",
-        "type": "in-page"
+        "type": "in-page",
+        "cookieExpiration": "9"
       }
       
       Settings for type: persistent
@@ -85,7 +86,8 @@ module.exports = {
         "name": "test"",
         "country": "United States",
         "language": "English",
-        "type": "hover"
+        "type": "hover", 
+        "cookieExpiration": "10"
       }
 
       Settings for type: explicit
@@ -95,7 +97,8 @@ module.exports = {
         "name": "test",
         "country": "United States",
         "language": "English",
-        "type": "explicit"
+        "type": "explicit",
+        "cookieExpiration": "11"
       }
 
       Settings for type: link with implied
@@ -105,7 +108,8 @@ module.exports = {
         "name": "August 18 2017 JM 1",
         "country": "United States",
         "language": "English",
-        "type": "in-page implied"
+        "type": "in-page implied",
+        "cookieExpiration": "12"
       }
 
       Settings for type: persistent with implied
@@ -115,7 +119,8 @@ module.exports = {
         "name": "August 14th 2017 JM 1",
         "country": "United States",
         "language": "English",
-        "type": "hover implied"
+        "type": "hover implied",
+        "cookieExpiration": "13"
       }
 
     */
@@ -124,11 +129,12 @@ module.exports = {
       displayName: 'Evidon Consent Platform',
       settings: {
         "companyId": 242,
-        "noticeId": 16052,
-        "name": "August 14th 2017 JM 1",
+        "noticeId": 16079,
+        "name": "August 18 2017 JM 1",
         "country": "United States",
         "language": "English",
-        "type": "hover implied"
+        "type": "in-page implied",
+        "cookieExpiration": "11"
       },
     }
   },
