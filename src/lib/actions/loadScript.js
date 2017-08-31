@@ -65,6 +65,7 @@ module.exports = function(settings) {
             s.async = true;
             s.setAttribute('data-ev-noticeid', id);
             s.setAttribute('data-ev-coid', cid);
+            s.setAttribute('data-ev-consent-expires', extensionSettings.cookieExpiration + 'm');
             s.setAttribute('data-ev-consent-callback', cb);
             s.setAttribute('data-ev-consent-type', 'cn');
             s.src = '//c.betrad.com/pub/gdprnotice.js';
