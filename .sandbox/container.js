@@ -106,7 +106,7 @@ module.exports = {
         "country": "United States",
         "language": "English",
         "type": "in-page implied",
-        "cookieExpiration": "11"
+        "cookieExpiration": "12"
       },
     }
   },

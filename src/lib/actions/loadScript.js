@@ -52,27 +52,24 @@ module.exports = function(settings) {
             })(extensionSettings.noticeId, extensionSettings.companyId, 'g_consentGiven');
             break;
         case 'in-page implied': // Link with Implied
-            (function() {
-                var ev = document.createElement('script'); ev.type = 'text/javascript'; ev.async = true; 
-                ev.setAttribute('data-ev-tag-pid', extensionSettings.noticeId); 
-                ev.setAttribute('data-ev-tag-ocid', extensionSettings.companyId); 
-                ev.src = '//c.betrad.com/pub/tag.js';
-                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ev, s);
-            })();
-            (function (id, cid, cb) {
-                var d = document
-                    , s = d.createElement('script')
-                    , ts = d.getElementsByTagName('script')[0];
-                s.type = 'text/javascript';
-                s.async = true;
-                s.setAttribute('data-ev-noticeid', id);
-                s.setAttribute('data-ev-coid', cid);
-                s.setAttribute('data-ev-consent-expires', extensionSettings.cookieExpiration + 'm');
-                s.setAttribute('data-ev-consent-callback', cb);
-                s.setAttribute('data-ev-consent-type', 'cn');
-                s.src = '//c.betrad.com/pub/gdprnotice.js';
-                ts.parentNode.insertBefore(s, ts);
-            })(extensionSettings.noticeId, extensionSettings.companyId, 'g_consentGiven');
+        (function() {
+            var ev = document.createElement('script'); ev.type = 'text/javascript'; ev.async = true; ev.setAttribute('data-ev-tag-pid', extensionSettings.noticeId); ev.setAttribute('data-ev-tag-ocid', extensionSettings.companyId); 
+            ev.src = '//c.betrad.com/pub/tag.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ev, s);
+          })();
+          (function (id, cid, cb) {
+            var d = document
+                , s = d.createElement('script')
+                , ts = d.getElementsByTagName('script')[0];
+            s.type = 'text/javascript';
+            s.async = true;
+            s.setAttribute('data-ev-noticeid', id);
+            s.setAttribute('data-ev-coid', cid);
+            s.setAttribute('data-ev-consent-callback', cb);
+            s.setAttribute('data-ev-consent-type', 'cn');
+            s.src = '//c.betrad.com/pub/gdprnotice.js';
+            ts.parentNode.insertBefore(s, ts);
+        })(extensionSettings.noticeId, extensionSettings.companyId, 'g_consentGiven');
            
             break;
         case 'hover implied': // persistent with implied
