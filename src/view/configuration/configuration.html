@@ -72,7 +72,7 @@
         <p>This type of notice requires the following html to be on your site:</p>
         <pre>&lt;a id="_bapw-link" href="#" target="_blank" style="text-decoration:none !important"&gt;
   &lt;img id="_bapw-icon" style="border:0 !important;display:inline !important;vertical-align:middle !important;padding-right:5px !important;"/&gt;
-    &lt;span style="vertical-align:middle !important"&gt;AdChoices&lt;/span&gt;
+  &lt;span style="vertical-align:middle !important"&gt;AdChoices&lt;/span&gt;
 &lt;/a&gt;</pre>
       </div>
   </form>
@@ -147,7 +147,8 @@
         },
 
         getSettings: function() {
-          return {
+          if(noticeObj){
+            return {
             companyId: noticeObj.CId,
             noticeId: noticeObj.NId,
             name: noticeObj.Name,
@@ -160,6 +161,10 @@
             //navigateToAnotherPage: document.getElementById('navigateToAnotherPage').checked,
             //scrollPage: document.getElementById('scrollPage').checked,
           };
+          } else {
+            return null;
+          }
+          
         },
 
         validate: function() {
@@ -224,12 +229,9 @@
         document.getElementById('noticeDetails').style.display = 'block';
         document.getElementById('errorMessage').style.display = 'none';
 
-        if(notice.Type == 'in-page') {
-            document.getElementById('in-pageIntr').style.display = 'block';
-            document.getElementById('in-page-impliedIntr').style.display = 'none';
-        } else if (notice.Type = 'in-page implied') {
-          document.getElementById('in-page-impliedIntr').style.display = 'block';
-          document.getElementById('in-pageIntr').style.display = 'none';
+        if(notice.Type == 'in-page' || notice.Type == 'in-page implied') {
+            document.getElementById('in-pageIntr').style.display = 'none';
+            document.getElementById('in-page-impliedIntr').style.display = 'block';
         } else {
           document.getElementById('in-pageIntr').style.display = 'none';
           document.getElementById('in-page-impliedIntr').style.display = 'none';
