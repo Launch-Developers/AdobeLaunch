@@ -114,7 +114,7 @@
         <input type="text" id="e_Email" />  
     </div>
   </form>
-  <button style="clear:both" type="button" id="evidon_lead_button" onclick="submitMarketo()">Send</button>
+  <button style="clear:both; border-radius:12px; background-color:white; border: solid 1px #444; padding:3px 10px;" type="button" id="evidon_lead_button" onclick="submitMarketo()">Send</button>
 </div>
   <script>
     MktoForms2.loadForm("//app-sjp.marketo.com", "338-XKU-741", 1704, function(form) {
@@ -225,7 +225,7 @@
         document.getElementById('noticeName').innerHTML = notice.Name;
         document.getElementById('noticeCountry').innerHTML = notice.Country;
         document.getElementById('noticeLanguage').innerHTML = notice.Language;
-        document.getElementById('noticeType').innerHTML = notice.Type;
+        document.getElementById('noticeType').innerHTML = displayNoticeType(notice.Type);
         document.getElementById('noticeDetails').style.display = 'block';
         document.getElementById('errorMessage').style.display = 'none';
 
@@ -236,6 +236,21 @@
           document.getElementById('in-pageIntr').style.display = 'none';
           document.getElementById('in-page-impliedIntr').style.display = 'none';
         }
+      }
+
+      function displayNoticeType(noticeType){
+        switch(noticeType) {
+          case 'in-page': // link
+            return 'Link';
+          case 'hover': // persistent
+            return 'Persistent';
+          case 'explicit': // explicit
+              return 'Hover Explicit'
+          case 'in-page implied': // Link with Implied
+              return 'Link with implied'
+          case 'hover implied': // persistent with implied
+              return 'Persistent with implied';
+        }   
       }
 
       function submitMarketo(){
