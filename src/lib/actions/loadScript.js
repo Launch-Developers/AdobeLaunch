@@ -53,9 +53,15 @@ module.exports = function(settings) {
             break;
         case 'in-page implied': // Link with Implied
         (function() {
-            var ev = document.createElement('script'); ev.type = 'text/javascript'; ev.async = true; ev.setAttribute('data-ev-tag-pid', extensionSettings.noticeId); ev.setAttribute('data-ev-tag-ocid', extensionSettings.companyId); 
+            var ev = document.createElement('script');
+            ev.type = 'text/javascript'; 
+            ev.async = true; 
+            ev.setAttribute('data-ev-tag-pid', extensionSettings.noticeId); 
+            ev.setAttribute('data-ev-tag-ocid', extensionSettings.companyId); 
             ev.src = '//c.betrad.com/pub/tag.js';
-            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ev, s);
+            var s = document.getElementsByTagName('script')[0]; 
+            s.parentNode.insertBefore(ev, s);
+            console.log('end of 1st function hit. in-page impiled');
           })();
           (function (id, cid, cb) {
             var d = document
@@ -70,6 +76,7 @@ module.exports = function(settings) {
             s.setAttribute('data-ev-consent-type', 'cn');
             s.src = '//c.betrad.com/pub/gdprnotice.js';
             ts.parentNode.insertBefore(s, ts);
+            console.log('end of end function hit. in-page impiled');
         })(extensionSettings.noticeId, extensionSettings.companyId, 'g_consentGiven');
            
             break;
