@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "scaffold": "reactor-scaffold",
-    "sandbox": "reactor-sandbox"
+    "sandbox": "reactor-sandbox",
+    "package": "reactor-packager"
   },
   "repository": {
     "type": "git",
@@ -22,6 +23,7 @@
   },
   "homepage": "https://github.com/evidon/AdobeLaunch#readme",
   "devDependencies": {
+    "@adobe/reactor-packager": "^2.6.0",
     "@adobe/reactor-sandbox": "^7.20.0",
     "@adobe/reactor-scaffold": "^1.1.8",
     "@adobe/reactor-turbine": "^20.2.0"

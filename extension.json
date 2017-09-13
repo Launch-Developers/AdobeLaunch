@@ -6,6 +6,7 @@
   "author": {
     "name": "Evidon"
   },
+  "iconPath": "src/view/evidon.adobelaunch.svg",
   "viewBasePath": "src/view/",
   "configuration": {
     "viewPath": "configuration/configuration.html",
