@@ -117,11 +117,10 @@
   <button style="clear:both; border-radius:12px; background-color:white; border: solid 1px #444; padding:3px 10px;" type="button" id="evidon_lead_button" onclick="submitMarketo()">Send</button>
 </div>
   <script>
-    MktoForms2.loadForm("//app-sjp.marketo.com", "338-XKU-741", 1704, function(form) {
+    MktoForms2.loadForm("//app-sjp.marketo.com", "338-XKU-741", 1725, function(form) {
                 form.onSuccess(function(values, followUpUrl) {
                   document.getElementById('contact-section').style.display = 'none';
                   showModal();
-                  //document.getElementById('marketoMessage').innerHTML = "Successfully submitted form. Thanks.";
                     return false;
                 });
             });
