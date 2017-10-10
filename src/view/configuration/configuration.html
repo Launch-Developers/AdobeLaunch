@@ -129,6 +129,9 @@
 
     <script src="https://assets.adobedtm.com/activation/reactor/extensionbridge/extensionbridge.min.js"></script>
     <script>
+
+      var noticeObj = null;
+
       window.extensionBridge.register({
         init: function(info) {
           if (info.settings) {
@@ -195,7 +198,7 @@
         textSixtyFour.value = objJsonB64;
       }
       
-      var noticeObj = null;
+      
 
       function decodeJson(){
         try{
