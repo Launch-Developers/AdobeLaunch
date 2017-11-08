@@ -2,8 +2,7 @@
 
 module.exports = function(settings) {
 
-    var getExtensionSettings = require('@turbine/get-extension-settings');
-    var extensionSettings = getExtensionSettings();
+    var extensionSettings = turbine.getExtensionSettings();
 
     switch(extensionSettings.type) {
         case 'in-page': // link
